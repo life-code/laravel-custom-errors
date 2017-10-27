@@ -11,7 +11,7 @@ trait ExceptionHandler
     /**
      * @var bool
      */ 
-    private $mails = [
+    private $sendMails = [
         \App\Mail\SendException::class,
     ];
     
@@ -27,7 +27,6 @@ trait ExceptionHandler
      */
     private function inProduction() : bool
     {
-        return true;
         return app()->environment() === 'production';
     }
     
@@ -74,7 +73,7 @@ trait ExceptionHandler
      */ 
     private function getMails() : array
     {
-        return $this->mails;
+        return $this->sendMails;
     }
     
     /**
